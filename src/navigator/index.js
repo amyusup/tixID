@@ -14,13 +14,6 @@ import {Image, Text} from 'react-native';
 const Tab = createBottomTabNavigator();
 
 export default function index() {
-  //   const MyStack = () => {
-  //     return (
-  //       <Stack.Navigator>
-  //         <Stack.Screen name="Home" component={Home} />
-  //       </Stack.Navigator>
-  //     );
-  //   };
 
   function MyTabs() {
     return (
