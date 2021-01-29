@@ -6,8 +6,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Beranda from '../screens/Beranda';
 import Bioskop from '../screens/Bioskop';
 import Tiket from '../screens/Tiket';
-import BerandaActive from '../../assets/home_active.png';
-import BerandaInactive from '../../assets/home_active.png';
+import {Icons} from '../../assets';
+
 import {Image, Text} from 'react-native';
 
 // const Stack = createStackNavigator();
@@ -29,15 +29,15 @@ export default function index() {
           name="Beranda"
           component={Beranda}
           options={{
-            tabBarIcon: ({focused, size}) =>
+            tabBarIcon: ({focused}) =>
               focused ? (
                 <Image
-                  source={require('../../assets/home_active.png')}
+                  source={Icons.home.active}
                   style={{height: 45, width: 45}}
                   />
               ) : (
                 <Image
-                  source={require('../../assets/home_inactive.png')}
+                  source={Icons.home.inactive}
                   style={{height: 45, width: 45}}
                 />
               ),
@@ -45,15 +45,15 @@ export default function index() {
         />
         <Tab.Screen name="Bioskop" component={Bioskop} 
         options={{
-            tabBarIcon: ({focused, size}) =>
+            tabBarIcon: ({focused}) =>
               focused ? (
                 <Image
-                  source={require('../../assets/cinema_active.png')}
+                  source={Icons.cinema.active}
                   style={{height: 45, width: 45}}
                   />
               ) : (
                 <Image
-                  source={require('../../assets/cinema_inactive.png')}
+                  source={Icons.cinema.inactive}
                   style={{height: 45, width: 45}}
                 />
               ),
@@ -63,12 +63,12 @@ export default function index() {
             tabBarIcon: ({focused, size}) =>
               focused ? (
                 <Image
-                  source={require('../../assets/ticket_active.png')}
+                  source={Icons.ticket.active}
                   style={{height: 45, width: 45}}
                   />
               ) : (
                 <Image
-                  source={require('../../assets/ticket_inactive.png')}
+                  source={Icons.ticket.inactive}
                   style={{height: 45, width: 45}}
                 />
               ),

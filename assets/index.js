@@ -11,4 +11,6 @@
         active : require('./ticket_active.png'),
         inactive : require('./ticket_inactive.png')
     },
+    logo: require('./logo.png'),
+    user: require('./user.png'),
 }

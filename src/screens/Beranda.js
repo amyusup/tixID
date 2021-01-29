@@ -1,10 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-
+import { View, Text, Image } from 'react-native'
+import Header from '../components/header'
 export default function Beranda() {
     return (
         <View>
-            <Text>Beranda</Text>
+            <Header />
         </View>
     )
 }
