@@ -7,6 +7,7 @@ import Event from '../components/event';
 import Streaming from '../components/streaming';
 import Video from '../components/video';
 import Spotlight from '../components/spotlight';
+import News from '../components/news';
 export default function Beranda() {
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
@@ -16,8 +17,9 @@ export default function Beranda() {
         <OnAir />
         <Event />
         <Streaming />
-        <Video /> */}
-        <Spotlight />
+        <Video />
+        <Spotlight /> */}
+        <News />
       </ScrollView>
     </View>
   );

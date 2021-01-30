@@ -31,7 +31,7 @@ export default function spotlight() {
   const activeMovie = movies[activeIndex];
   let deviceWidth = Dimensions.get('window').width;
 
-  let renderItems = ({item, index}) => {
+  const renderItems = ({item, index}) => {
     return (
       <View key={index}>
         <Image
@@ -48,12 +48,21 @@ export default function spotlight() {
         />
         <View style={styles.descBox}>
           <Text style={{fontWeight: 'bold'}}>{item.title}</Text>
-          <View style={{marginVertical: 3, flexDirection: 'row', alignItems:"center"}}>
+          <View
+            style={{
+              marginVertical: 3,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
             <Text style={styles.itemDetail}>
               <Image source={Icons.eye} style={{height: 10, width: 17}} />{' '}
               {item.views}
             </Text>
-            <Text style={styles.itemDetail}>{'  '} <Image source={Icons.like} style={{height: 14, width: 14}} /> {item.like}</Text>
+            <Text style={styles.itemDetail}>
+              {'  '}{' '}
+              <Image source={Icons.like} style={{height: 14, width: 14}} />{' '}
+              {item.like}
+            </Text>
           </View>
         </View>
       </View>
