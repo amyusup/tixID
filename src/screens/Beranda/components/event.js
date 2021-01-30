@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../../../assets';
-import Carousel from 'react-native-snap-carousel';
 import MyCarousel from '../../../components/myCaraousel'
 export default function event() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
-  let events = [
+  const events = [
     {
       title: 'W1 Drive-In Senja Alsut 3: Onward',
       date: 'Sab, 30 Jan 2021',
@@ -32,10 +31,9 @@ export default function event() {
       poster: Icons.poster3,
     },
   ];
-  const activeMovie = events[activeIndex];
-  let deviceWidth = Dimensions.get('window').width;
+  const deviceWidth = Dimensions.get('window').width;
 
-  let renderItems = ({item, index}) => {
+  const renderItems = ({item, index}) => {
     return (
       <View key={index}>
         <Image

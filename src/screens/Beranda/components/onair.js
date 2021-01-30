@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../../../assets';
-import Carousel from 'react-native-snap-carousel';
 import MyCarousel from '../../../components/myCaraousel';
 export default function onair() {
   const [activeIndex, setActiveIndex] = React.useState(1);
 
-  let movies = [
+  const movies = [
     {
       title: 'BAD BOYS',
       poster: Icons.poster1,
@@ -21,9 +20,9 @@ export default function onair() {
     },
   ];
   const activeMovie = movies[activeIndex];
-  let deviceWidth = Dimensions.get('window').width;
+  const deviceWidth = Dimensions.get('window').width;
 
-  let renderItems = ({item, index}) => {
+  const renderItems = ({item, index}) => {
     const isActive = activeMovie === item;
     return (
       <View key={index}>
@@ -34,10 +33,7 @@ export default function onair() {
           borderRadius={10}
         />
         {isActive && (
-          <Image
-            source={Icons.buy_ticket}
-            style={{width: '90%', height: 35, position: 'absolute', bottom: 0}}
-          />
+          <Image source={Icons.buy_ticket} style={styles.imgTicket} />
         )}
       </View>
     );
@@ -66,18 +62,6 @@ export default function onair() {
         </View>
       </View>
 
-      {/* <Carousel
-        data={movies}
-        firstItem={1}
-        sliderWidth={deviceWidth}
-        itemWidth={deviceWidth / 2}
-        renderItem={renderItems}
-        inactiveSlideScale={5}
-        inactiveSlideOpacity={1}
-        loop={true}
-        onSnapToItem={(activeIndex) => setActiveIndex(activeIndex)}
-      /> */}
-
       <MyCarousel
         data={movies}
         firstItem={1}
@@ -91,9 +75,7 @@ export default function onair() {
       />
 
       <View>
-        <Text style={{textAlign: 'center', fontSize: 25, fontWeight: 'bold'}}>
-          {activeMovie.title}
-        </Text>
+        <Text style={styles.title}>{activeMovie.title}</Text>
       </View>
       <Image
         source={Icons.xxi_gold_badge}
@@ -116,4 +98,6 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     marginHorizontal: 10,
   },
+  imgTicket: {width: '90%', height: 35, position: 'absolute', bottom: 0},
+  title: {textAlign: 'center', fontSize: 25, fontWeight: 'bold'},
 });

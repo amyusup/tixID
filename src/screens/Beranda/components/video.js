@@ -1,13 +1,12 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../../../assets';
-import Carousel from 'react-native-snap-carousel';
 import MyCarousel from '../../../components/myCaraousel'
 
 export default function video() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
-  let movies = [
+  const movies = [
     {
       title: 'STAND BY ME DORAEMON',
       views: '77',
@@ -30,22 +29,15 @@ export default function video() {
       poster: Icons.trailer,
     },
   ];
-  const activeMovie = movies[activeIndex];
-  let deviceWidth = Dimensions.get('window').width;
+  const deviceWidth = Dimensions.get('window').width;
 
-  let renderItems = ({item, index}) => {
+  const renderItems = ({item, index}) => {
     return (
       <View key={index}>
         <Image
           source={item.poster}
           key={index}
-          style={{
-            width: '90%',
-            height: 200,
-            borderColor: 'grey',
-            borderWidth: 0.1,
-            marginVertical: 3,
-          }}
+          style={styles.imgPoster}
           borderRadius={10}
         />
         <View style={styles.badge}>
@@ -120,4 +112,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'grey',
   },
+  imgPoster:{
+    width: '90%',
+    height: 200,
+    borderColor: 'grey',
+    borderWidth: 0.1,
+    marginVertical: 3,
+  }
 });

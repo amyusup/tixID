@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../../../assets';
-import Carousel from 'react-native-snap-carousel';
-import MyCarousel from '../../../components/myCaraousel'
+import MyCarousel from '../../../components/myCaraousel';
 export default function spotlight() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
-  let movies = [
+  const movies = [
     {
       title: 'Rilis Trailer, Godzila vs. Kong',
       views: '277',
@@ -28,7 +27,6 @@ export default function spotlight() {
       poster: Icons.spotlight,
     },
   ];
-  const activeMovie = movies[activeIndex];
   let deviceWidth = Dimensions.get('window').width;
 
   const renderItems = ({item, index}) => {
@@ -37,23 +35,12 @@ export default function spotlight() {
         <Image
           source={item.poster}
           key={index}
-          style={{
-            width: '90%',
-            height: 200,
-            borderColor: 'grey',
-            borderWidth: 0.1,
-            marginVertical: 3,
-          }}
+          style={styles.imgPoster}
           borderRadius={10}
         />
         <View style={styles.descBox}>
           <Text style={{fontWeight: 'bold'}}>{item.title}</Text>
-          <View
-            style={{
-              marginVertical: 3,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+          <View style={styles.boxDetail}>
             <Text style={styles.itemDetail}>
               <Image source={Icons.eye} style={{height: 10, width: 17}} />{' '}
               {item.views}
@@ -70,12 +57,7 @@ export default function spotlight() {
   };
   return (
     <>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 20,
-        }}>
+      <View style={styles.title}>
         <Text style={{fontSize: 20, fontWeight: 'bold', textAlign: 'left'}}>
           Spotlight
         </Text>
@@ -126,5 +108,22 @@ const styles = StyleSheet.create({
   itemDetail: {
     fontSize: 12,
     color: 'grey',
+  },
+  imgPoster: {
+    width: '90%',
+    height: 200,
+    borderColor: 'grey',
+    borderWidth: 0.1,
+    marginVertical: 3,
+  },
+  boxDetail: {
+    marginVertical: 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  title: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
   },
 });

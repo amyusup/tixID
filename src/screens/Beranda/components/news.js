@@ -10,7 +10,7 @@ import {
 import {Icons} from '../../../../assets';
 
 export default function news() {
-  let news = [
+  const news = [
     {
       id: '1',
       title: 'Godzila Tayang Tahun Ini ?',
@@ -36,8 +36,6 @@ export default function news() {
       img: Icons.poster1,
     },
   ];
-
-  let deviceWidth = Dimensions.get('window').width;
 
   const renderItems = ({item}) => {
     return (
@@ -71,13 +69,7 @@ export default function news() {
             </View>
           </View>
         </View>
-        <Text
-          style={{
-            borderBottomColor: 'grey',
-            borderBottomWidth: 0.5,
-            width: deviceWidth,
-            marginVertical: 10,
-          }}></Text>
+        <Text style={styles.line}></Text>
       </>
     );
   };
@@ -132,5 +124,11 @@ const styles = StyleSheet.create({
     color: 'grey',
     marginLeft: 15,
     flex: 1,
+  },
+  line: {
+    borderBottomColor: 'grey',
+    borderBottomWidth: 0.5,
+    width: Dimensions.get('window').width,
+    marginVertical: 10,
   },
 });

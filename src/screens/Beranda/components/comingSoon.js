@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../../../assets';
-import Carousel from 'react-native-snap-carousel';
-import MyCarousel from '../../../components/myCaraousel'
+import MyCarousel from '../../../components/myCaraousel';
 export default function comingSoon() {
   const [activeIndex, setActiveIndex] = React.useState(1);
 
-  let movies = [
+  const movies = [
     {
       title: 'BAD BOYS',
       poster: Icons.poster1,
@@ -20,11 +19,9 @@ export default function comingSoon() {
       poster: Icons.poster3,
     },
   ];
-  const activeMovie = movies[activeIndex];
-  let deviceWidth = Dimensions.get('window').width;
+  const deviceWidth = Dimensions.get('window').width;
 
-  let renderItems = ({item, index}) => {
-    const isActive = activeMovie === item;
+  const renderItems = ({item, index}) => {
     return (
       <View key={index}>
         <Image
@@ -33,18 +30,22 @@ export default function comingSoon() {
           style={{width: '90%', height: 250, marginVertical: 10}}
           borderRadius={10}
         />
-        <Text style={{textAlign:"left"}}>{item.title}</Text>
-        <Text style={{backgroundColor:"red", color:"white", width:40, textAlign:"center", borderRadius:3, fontSize:12, marginBottom:10}}>CGV</Text>
+        <Text style={{textAlign: 'left'}}>{item.title}</Text>
+        <Text
+          style={styles.badge}>
+          CGV
+        </Text>
       </View>
     );
   };
   return (
     <>
-      <View style={[styles.contentRow, { paddingHorizontal:10}]}>
+      <View style={[styles.contentRow, {paddingHorizontal: 10}]}>
         <View style={{flex: 2}}>
           <Text style={{fontSize: 20, fontWeight: 'bold'}}>Akan Datang</Text>
         </View>
-        <View style={[styles.contentRow, {flex: 2,justifyContent:"flex-end"}]}>
+        <View
+          style={[styles.contentRow, {flex: 2, justifyContent: 'flex-end'}]}>
           <Text> Semua </Text>
           <Image source={Icons.arrow_right} style={{height: 24, width: 24}} />
         </View>
@@ -74,10 +75,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   badge: {
-    borderWidth: 2,
-    borderRadius: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginHorizontal: 10,
-  },
+    backgroundColor: 'red',
+    color: 'white',
+    width: 40,
+    textAlign: 'center',
+    borderRadius: 3,
+    fontSize: 12,
+    marginBottom: 10,
+  }
 });

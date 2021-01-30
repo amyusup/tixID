@@ -1,13 +1,12 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../../../assets';
-import Carousel from 'react-native-snap-carousel';
 import MyCarousel from '../../../components/myCaraousel'
 
 export default function streaming() {
   const [activeIndex, setActiveIndex] = React.useState(1);
 
-  let movies = [
+  const movies = [
     {
       title: 'BAD BOYS',
       poster: Icons.poster1,
@@ -22,10 +21,9 @@ export default function streaming() {
     },
   ];
   const activeMovie = movies[activeIndex];
-  let deviceWidth = Dimensions.get('window').width;
+  const deviceWidth = Dimensions.get('window').width;
 
-  let renderItems = ({item, index}) => {
-    const isActive = activeMovie === item;
+  const renderItems = ({item, index}) => {
     return (
       <View key={index}>
         <Image
