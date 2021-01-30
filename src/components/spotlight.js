@@ -3,33 +3,29 @@ import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../assets';
 import Carousel from 'react-native-snap-carousel';
 
-export default function event() {
+export default function spotlight() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   let movies = [
     {
-      title: 'W1 Drive-In Senja Alsut 3: Onward',
-      date: 'Sab, 30 Jan 2021',
-      desc: 'Lapangan Parkir Utama Mall',
-      price: 'Rp460.000',
-      disc: 'Rp200.000',
-      poster: Icons.poster1,
+      title: 'Rilis Trailer, Godzila vs. Kong',
+      views: '277',
+      like: '150',
+      poster: Icons.spotlight,
     },
+
     {
-      title: 'W1 Drive-In Senja Alsut 3: Onward',
-      date: 'Sab, 30 Jan 2021',
-      desc: 'Lapangan Parkir Utama Mall',
-      price: 'Rp460.000',
-      disc: 'Rp200.000',
-      poster: Icons.poster2,
+      title: 'Rilis Trailer, Godzila vs. Kong',
+      views: '277',
+      like: '150',
+      poster: Icons.spotlight,
     },
+
     {
-      title: 'W1 Drive-In Senja Alsut 3: Onward',
-      date: 'Sab, 30 Jan 2021',
-      desc: 'Lapangan Parkir Utama Mall',
-      price: 'Rp460.000',
-      disc: 'Rp200.000',
-      poster: Icons.poster3,
+      title: 'Rilis Trailer, Godzila vs. Kong',
+      views: '277',
+      like: '150',
+      poster: Icons.spotlight,
     },
   ];
   const activeMovie = movies[activeIndex];
@@ -41,23 +37,23 @@ export default function event() {
         <Image
           source={item.poster}
           key={index}
-          style={{width: '90%', height: 250, marginVertical: 10}}
+          style={{
+            width: '90%',
+            height: 200,
+            borderColor: 'grey',
+            borderWidth: 0.1,
+            marginVertical: 3,
+          }}
           borderRadius={10}
         />
-        <View style={styles.badge}>
-          <Text style={{color: 'white', fontSize: 10}}>Tersedia</Text>
-        </View>
         <View style={styles.descBox}>
           <Text style={{fontWeight: 'bold'}}>{item.title}</Text>
-          <View style={[styles.contentRow, {marginVertical: 3}]}>
-            <Text style={{fontSize: 12, flex: 4}}>{item.date}</Text>
-            <Text style={styles.itemDisc}>{item.disc}</Text>
-          </View>
-          <View style={styles.contentRow}>
-            <Text style={{fontSize: 12, flex: 3, color: 'grey'}}>
-              {item.desc}
+          <View style={{marginVertical: 3, flexDirection: 'row', alignItems:"center"}}>
+            <Text style={styles.itemDetail}>
+              <Image source={Icons.eye} style={{height: 10, width: 17}} />{' '}
+              {item.views}
             </Text>
-            <Text style={styles.itemPrice}>{item.price}</Text>
+            <Text style={styles.itemDetail}>{'  '} <Image source={Icons.like} style={{height: 14, width: 14}} /> {item.like}</Text>
           </View>
         </View>
       </View>
@@ -72,12 +68,11 @@ export default function event() {
           paddingHorizontal: 20,
         }}>
         <Text style={{fontSize: 20, fontWeight: 'bold', textAlign: 'left'}}>
-          Event Untuk Anda
+          Spotlight
         </Text>
-        <Image source={Icons.new_gold_badge} style={{height: 60, width: 60}} />
       </View>
       <Text style={{marginHorizontal: 20, color: 'grey'}}>
-        Hiburan seru untuk bikin tetap semangat!
+        Berita hiburan terhangat untuk Anda!
       </Text>
       <Carousel
         data={movies}
@@ -85,6 +80,7 @@ export default function event() {
         sliderWidth={deviceWidth}
         itemWidth={deviceWidth - 50}
         renderItem={renderItems}
+        inactiveSlideScale={5}
         onSnapToItem={(activeIndex) => setActiveIndex(activeIndex)}
       />
     </>
@@ -99,40 +95,27 @@ const styles = StyleSheet.create({
   },
   badge: {
     borderWidth: 1,
-    borderRadius: 20,
+    borderRadius: 5,
     paddingHorizontal: 10,
     paddingVertical: 5,
     marginHorizontal: 10,
     borderColor: 'white',
     position: 'absolute',
-    top: 7,
+    bottom: '25%',
+    right: 15,
     marginTop: 10,
-    backgroundColor: 'black',
-    opacity: 0.5,
+    backgroundColor: '#1A2B50',
   },
   descBox: {
     width: '90%',
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: 'white',
     marginBottom: 10,
     overflow: 'hidden',
-    elevation: 10,
     padding: 10,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
-  itemDisc: {
-    fontSize: 10,
-    flex: 1,
-    textDecorationLine: 'line-through',
-    textDecorationStyle: 'solid',
-    color: 'grey',
-  },
-  itemPrice: {
+  itemDetail: {
     fontSize: 12,
-    flex: 1,
-    color: '#118EE8',
-    fontWeight: 'bold',
+    color: 'grey',
   },
 });

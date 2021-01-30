@@ -3,33 +3,30 @@ import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../assets';
 import Carousel from 'react-native-snap-carousel';
 
-export default function event() {
+export default function video() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   let movies = [
     {
-      title: 'W1 Drive-In Senja Alsut 3: Onward',
-      date: 'Sab, 30 Jan 2021',
-      desc: 'Lapangan Parkir Utama Mall',
-      price: 'Rp460.000',
-      disc: 'Rp200.000',
-      poster: Icons.poster1,
+      title: 'STAND BY ME DORAEMON',
+      views: '77',
+      like: '22',
+      date: '30 Jan 2021',
+      poster: Icons.trailer,
     },
     {
-      title: 'W1 Drive-In Senja Alsut 3: Onward',
-      date: 'Sab, 30 Jan 2021',
-      desc: 'Lapangan Parkir Utama Mall',
-      price: 'Rp460.000',
-      disc: 'Rp200.000',
-      poster: Icons.poster2,
+      title: 'STAND BY ME DORAEMON',
+      views: '77',
+      like: '22',
+      date: '30 Jan 2021',
+      poster: Icons.trailer,
     },
     {
-      title: 'W1 Drive-In Senja Alsut 3: Onward',
-      date: 'Sab, 30 Jan 2021',
-      desc: 'Lapangan Parkir Utama Mall',
-      price: 'Rp460.000',
-      disc: 'Rp200.000',
-      poster: Icons.poster3,
+      title: 'STAND BY ME DORAEMON',
+      views: '77',
+      like: '22',
+      date: '30 Jan 2021',
+      poster: Icons.trailer,
     },
   ];
   const activeMovie = movies[activeIndex];
@@ -41,23 +38,23 @@ export default function event() {
         <Image
           source={item.poster}
           key={index}
-          style={{width: '90%', height: 250, marginVertical: 10}}
+          style={{
+            width: '90%',
+            height: 200,
+            borderColor: 'grey',
+            borderWidth: 0.1,
+            marginVertical: 3,
+          }}
           borderRadius={10}
         />
         <View style={styles.badge}>
-          <Text style={{color: 'white', fontSize: 10}}>Tersedia</Text>
+          <Text style={{color: '#FFC964', fontSize: 10}}>{item.like} Suka</Text>
         </View>
         <View style={styles.descBox}>
           <Text style={{fontWeight: 'bold'}}>{item.title}</Text>
-          <View style={[styles.contentRow, {marginVertical: 3}]}>
-            <Text style={{fontSize: 12, flex: 4}}>{item.date}</Text>
-            <Text style={styles.itemDisc}>{item.disc}</Text>
-          </View>
-          <View style={styles.contentRow}>
-            <Text style={{fontSize: 12, flex: 3, color: 'grey'}}>
-              {item.desc}
-            </Text>
-            <Text style={styles.itemPrice}>{item.price}</Text>
+          <View style={{marginVertical: 3, flexDirection: 'row'}}>
+            <Text style={styles.itemDetail}>{item.views} Ditonton | </Text>
+            <Text style={styles.itemDetail}>{item.date}</Text>
           </View>
         </View>
       </View>
@@ -72,12 +69,11 @@ export default function event() {
           paddingHorizontal: 20,
         }}>
         <Text style={{fontSize: 20, fontWeight: 'bold', textAlign: 'left'}}>
-          Event Untuk Anda
+          Video
         </Text>
-        <Image source={Icons.new_gold_badge} style={{height: 60, width: 60}} />
       </View>
       <Text style={{marginHorizontal: 20, color: 'grey'}}>
-        Hiburan seru untuk bikin tetap semangat!
+        Trailer, wawancara, di balik layar, dan banyak lagi!
       </Text>
       <Carousel
         data={movies}
@@ -85,6 +81,7 @@ export default function event() {
         sliderWidth={deviceWidth}
         itemWidth={deviceWidth - 50}
         renderItem={renderItems}
+        inactiveSlideScale={5}
         onSnapToItem={(activeIndex) => setActiveIndex(activeIndex)}
       />
     </>
@@ -99,40 +96,27 @@ const styles = StyleSheet.create({
   },
   badge: {
     borderWidth: 1,
-    borderRadius: 20,
+    borderRadius: 5,
     paddingHorizontal: 10,
     paddingVertical: 5,
     marginHorizontal: 10,
     borderColor: 'white',
     position: 'absolute',
-    top: 7,
+    bottom: '25%',
+    right:15,
     marginTop: 10,
-    backgroundColor: 'black',
-    opacity: 0.5,
+    backgroundColor: '#1A2B50',
   },
   descBox: {
     width: '90%',
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: 'white',
     marginBottom: 10,
     overflow: 'hidden',
-    elevation: 10,
     padding: 10,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
-  itemDisc: {
-    fontSize: 10,
-    flex: 1,
-    textDecorationLine: 'line-through',
-    textDecorationStyle: 'solid',
-    color: 'grey',
-  },
-  itemPrice: {
+  itemDetail: {
     fontSize: 12,
-    flex: 1,
-    color: '#118EE8',
-    fontWeight: 'bold',
+    color: 'grey',
   },
 });

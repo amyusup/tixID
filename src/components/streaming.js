@@ -3,7 +3,7 @@ import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import {Icons} from '../../assets';
 import Carousel from 'react-native-snap-carousel';
 
-export default function onair() {
+export default function streaming() {
   const [activeIndex, setActiveIndex] = React.useState(1);
 
   let movies = [
@@ -33,54 +33,37 @@ export default function onair() {
           style={{width: '90%', height: 250, marginVertical: 10}}
           borderRadius={10}
         />
-        {isActive && (
-          <Image
-            source={Icons.buy_ticket}
-            style={{width: '90%', height: 35, position: 'absolute', bottom: 0}}
-          />
-        )}
+        <Text style={{textAlign:"left"}}>{item.title}</Text>
       </View>
     );
   };
   return (
     <>
-      <View style={[styles.contentRow, {paddingVertical: 10, paddingHorizontal:10}]}>
+      <View style={[styles.contentRow, { paddingHorizontal:10}]}>
         <View style={{flex: 2}}>
-          <Text style={{fontSize: 20, fontWeight: 'bold'}}> Sedang Tayang</Text>
+          <Text style={{fontSize: 20, fontWeight: 'bold'}}> Nonton Online</Text>
         </View>
-        <View style={[styles.contentRow, {flex: 1}]}>
+        <View style={[styles.contentRow, {flex: 1, }]}>
+          <Image source={Icons.new_gold_badge} style={{height: 60, width: 60}} />
+        </View>
+        <View style={[styles.contentRow, {flex: 2,justifyContent:"flex-end"}]}>
           <Text> Semua </Text>
           <Image source={Icons.arrow_right} style={{height: 24, width: 24}} />
         </View>
       </View>
-      <View style={{flexDirection: 'row'}}>
-        <View style={[styles.badge, {borderColor: '#118EE8'}]}>
-          <Text style={{color: '#118EE8'}}>Semua Bioskop</Text>
-        </View>
-        <View style={[styles.badge, {borderColor: 'grey'}]}>
-          <Text>XXI</Text>
-        </View>
-      </View>
+      <Text style={{marginHorizontal: 20, color: 'grey'}}>
+        Sewa dan tonton film menarik kapanpun!
+      </Text>
 
       <Carousel
         data={movies}
-        firstItem={1}
+        firstItem={0}
         sliderWidth={deviceWidth}
         itemWidth={deviceWidth / 2}
         renderItem={renderItems}
         inactiveSlideScale={5}
         inactiveSlideOpacity={1}
-        loop={true}
         onSnapToItem={(activeIndex) => setActiveIndex(activeIndex)}
-      />
-      <View>
-        <Text style={{textAlign: 'center', fontSize: 25, fontWeight: 'bold'}}>
-          {activeMovie.title}
-        </Text>
-      </View>
-      <Image
-        source={Icons.xxi_gold_badge}
-        style={{alignSelf: 'center', height: 40, width: 50}}
       />
     </>
   );
