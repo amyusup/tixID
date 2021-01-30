@@ -1,7 +1,8 @@
 import React from 'react';
 import {Dimensions, Image} from 'react-native';
-import {Icons} from '../../assets';
+import {Icons} from '../../../../assets';
 import Carousel from 'react-native-snap-carousel';
+import MyCarousel from '../../../components/myCaraousel';
 export default function promo() {
   let promos = [Icons.promo1, Icons.promo2, Icons.promo3];
   let deviceWidth = Dimensions.get('window').width;
@@ -13,7 +14,16 @@ export default function promo() {
   };
 
   return (
-    <Carousel
+    // <Carousel
+    //   data={promos}
+    //   sliderWidth={deviceWidth}
+    //   itemWidth={deviceWidth}
+    //   renderItem={renderItems}
+    //   inactiveSlideScale={5}
+    //   loop={true}
+    //   autoplay={true}
+    // />
+    <MyCarousel
       data={promos}
       sliderWidth={deviceWidth}
       itemWidth={deviceWidth}

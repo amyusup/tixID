@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
-import {Icons} from '../../assets';
+import {Icons} from '../../../../assets';
 import Carousel from 'react-native-snap-carousel';
-
+import MyCarousel from '../../../components/myCaraousel'
 export default function spotlight() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
@@ -83,7 +83,7 @@ export default function spotlight() {
       <Text style={{marginHorizontal: 20, color: 'grey'}}>
         Berita hiburan terhangat untuk Anda!
       </Text>
-      <Carousel
+      <MyCarousel
         data={movies}
         firstItem={0}
         sliderWidth={deviceWidth}

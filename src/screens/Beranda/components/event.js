@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
-import {Icons} from '../../assets';
+import {Icons} from '../../../../assets';
 import Carousel from 'react-native-snap-carousel';
-
+import MyCarousel from '../../../components/myCaraousel'
 export default function event() {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
-  let movies = [
+  let events = [
     {
       title: 'W1 Drive-In Senja Alsut 3: Onward',
       date: 'Sab, 30 Jan 2021',
@@ -32,7 +32,7 @@ export default function event() {
       poster: Icons.poster3,
     },
   ];
-  const activeMovie = movies[activeIndex];
+  const activeMovie = events[activeIndex];
   let deviceWidth = Dimensions.get('window').width;
 
   let renderItems = ({item, index}) => {
@@ -79,8 +79,8 @@ export default function event() {
       <Text style={{marginHorizontal: 20, color: 'grey'}}>
         Hiburan seru untuk bikin tetap semangat!
       </Text>
-      <Carousel
-        data={movies}
+      <MyCarousel
+        data={events}
         firstItem={0}
         sliderWidth={deviceWidth}
         itemWidth={deviceWidth - 50}

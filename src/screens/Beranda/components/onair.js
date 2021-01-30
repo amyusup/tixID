@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
-import {Icons} from '../../assets';
+import {Icons} from '../../../../assets';
 import Carousel from 'react-native-snap-carousel';
-
+import MyCarousel from '../../../components/myCaraousel';
 export default function onair() {
   const [activeIndex, setActiveIndex] = React.useState(1);
 
@@ -44,7 +44,11 @@ export default function onair() {
   };
   return (
     <>
-      <View style={[styles.contentRow, {paddingVertical: 10, paddingHorizontal:10}]}>
+      <View
+        style={[
+          styles.contentRow,
+          {paddingVertical: 10, paddingHorizontal: 10},
+        ]}>
         <View style={{flex: 2}}>
           <Text style={{fontSize: 20, fontWeight: 'bold'}}> Sedang Tayang</Text>
         </View>
@@ -62,7 +66,19 @@ export default function onair() {
         </View>
       </View>
 
-      <Carousel
+      {/* <Carousel
+        data={movies}
+        firstItem={1}
+        sliderWidth={deviceWidth}
+        itemWidth={deviceWidth / 2}
+        renderItem={renderItems}
+        inactiveSlideScale={5}
+        inactiveSlideOpacity={1}
+        loop={true}
+        onSnapToItem={(activeIndex) => setActiveIndex(activeIndex)}
+      /> */}
+
+      <MyCarousel
         data={movies}
         firstItem={1}
         sliderWidth={deviceWidth}
@@ -73,6 +89,7 @@ export default function onair() {
         loop={true}
         onSnapToItem={(activeIndex) => setActiveIndex(activeIndex)}
       />
+
       <View>
         <Text style={{textAlign: 'center', fontSize: 25, fontWeight: 'bold'}}>
           {activeMovie.title}

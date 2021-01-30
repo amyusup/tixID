@@ -7,11 +7,12 @@ import {
   Dimensions,
   FlatList,
 } from 'react-native';
-import {Icons} from '../../assets';
+import {Icons} from '../../../../assets';
 
 export default function news() {
   let news = [
     {
+      id: '1',
       title: 'Godzila Tayang Tahun Ini ?',
       views: '22',
       like: '49',
@@ -19,6 +20,7 @@ export default function news() {
       img: Icons.poster1,
     },
     {
+      id: '2',
       title: 'Godzila Tayang Tahun Ini ?',
       views: '22',
       like: '49',
@@ -26,6 +28,7 @@ export default function news() {
       img: Icons.poster1,
     },
     {
+      id: '3',
       title: 'Godzila Tayang Tahun Ini ?',
       views: '22',
       like: '49',
@@ -71,7 +74,7 @@ export default function news() {
         <Text
           style={{
             borderBottomColor: 'grey',
-            borderBottomWidth: 1,
+            borderBottomWidth: 0.5,
             width: deviceWidth,
             marginVertical: 10,
           }}></Text>
@@ -97,8 +100,13 @@ export default function news() {
       <Text style={{marginHorizontal: 10, color: 'grey', marginBottom: 10}}>
         Update berita terbaru seputar dunia film
       </Text>
-
-      <FlatList data={news} renderItem={renderItems} />
+      <View>
+        <FlatList
+          data={news}
+          renderItem={renderItems}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
     </>
   );
 }

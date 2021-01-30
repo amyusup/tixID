@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
-import {Icons} from '../../assets';
+import {Icons} from '../../../../assets';
 import Carousel from 'react-native-snap-carousel';
+import MyCarousel from '../../../components/myCaraousel'
 
 export default function video() {
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -75,7 +76,7 @@ export default function video() {
       <Text style={{marginHorizontal: 20, color: 'grey'}}>
         Trailer, wawancara, di balik layar, dan banyak lagi!
       </Text>
-      <Carousel
+      <MyCarousel
         data={movies}
         firstItem={0}
         sliderWidth={deviceWidth}
