@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -8,41 +8,49 @@ import {
   FlatList,
 } from 'react-native';
 import {Icons} from '../../../../assets';
-
+import {useDispatch, useSelector} from 'react-redux';
+import {getNews} from '../../../redux/actions/news';
 export default function news() {
-  const news = [
-    {
-      id: '1',
-      title: 'Godzila Tayang Tahun Ini ?',
-      views: '22',
-      like: '49',
-      posted: '2 jam lalu',
-      img: Icons.poster1,
-    },
-    {
-      id: '2',
-      title: 'Godzila Tayang Tahun Ini ?',
-      views: '22',
-      like: '49',
-      posted: '2 jam lalu',
-      img: Icons.poster1,
-    },
-    {
-      id: '3',
-      title: 'Godzila Tayang Tahun Ini ?',
-      views: '22',
-      like: '49',
-      posted: '2 jam lalu',
-      img: Icons.poster1,
-    },
-  ];
+  // const news = [
+  //   {
+  //     id: '1',
+  //     title: 'Godzila Tayang Tahun Ini ?',
+  //     views: '22',
+  //     like: '49',
+  //     posted: '2 jam lalu',
+  //     img: Icons.poster1,
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Godzila Tayang Tahun Ini ?',
+  //     views: '22',
+  //     like: '49',
+  //     posted: '2 jam lalu',
+  //     img: Icons.poster1,
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Godzila Tayang Tahun Ini ?',
+  //     views: '22',
+  //     like: '49',
+  //     posted: '2 jam lalu',
+  //     img: Icons.poster1,
+  //   },
+  // ];
+
+  const dispatch = useDispatch();
+  const {news} = useSelector((state) => state.news);
+
+  useEffect(() => {
+    dispatch(getNews());
+  }, []);
 
   const renderItems = ({item}) => {
     return (
       <>
         <View style={{flexDirection: 'row', marginHorizontal: 10}}>
           <Image
-            source={Icons.spotlight}
+            source={{uri: item.img}}
             style={{height: 80, width: 80, borderRadius: 10, flex: 1}}
           />
           <View style={{flex: 3}}>
@@ -96,7 +104,7 @@ export default function news() {
         <FlatList
           data={news}
           renderItem={renderItems}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
     </>
