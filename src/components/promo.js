@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Dimensions, Image} from 'react-native';
+import {Dimensions, Image} from 'react-native';
 import {Icons} from '../../assets';
 import Carousel from 'react-native-snap-carousel';
 export default function promo() {
@@ -7,7 +7,9 @@ export default function promo() {
   let deviceWidth = Dimensions.get('window').width;
 
   let renderItems = ({item, index}) => {
-    return <Image source={item} key={index} style={{width: '100%', height: 150}} />
+    return (
+      <Image source={item} key={index} style={{width: '100%', height: 150}} />
+    );
   };
 
   return (

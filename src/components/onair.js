@@ -71,7 +71,6 @@ export default function onair() {
         inactiveSlideScale={5}
         inactiveSlideOpacity={1}
         loop={true}
-        autoplay={true}
         onSnapToItem={(activeIndex) => setActiveIndex(activeIndex)}
       />
       <View>
@@ -79,7 +78,10 @@ export default function onair() {
           {activeMovie.title}
         </Text>
       </View>
-      <Image source={Icons.xxi_gold_badge} style={{alignSelf: 'center', height:40, width:50}} />
+      <Image
+        source={Icons.xxi_gold_badge}
+        style={{alignSelf: 'center', height: 40, width: 50}}
+      />
     </>
   );
 }

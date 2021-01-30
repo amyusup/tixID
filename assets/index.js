@@ -24,4 +24,5 @@
     poster3: require('./poster3.png'),
     buy_ticket: require('./buy_ticket.png'),
     xxi_gold_badge: require('./xxi_gold_badge.jpg'),
+    new_gold_badge: require('./new_gold_badge.jpg'),
 }
