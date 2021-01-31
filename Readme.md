@@ -7,7 +7,7 @@
 
 ### Home
 
-<img src="https://drive.google.com/file/d/1i0gAP7Br8lDly7ta4V-q0u0ymw2QpO5n/view?usp=sharing" width="250">
+<img src="https://i.ibb.co/sm3tHG7/Home.jpg" width="250">
 
 ## Setup
 
