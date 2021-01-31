@@ -8,6 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Header from '../../components/header';
+import Location from '../../components/location';
 import Promo from './components/promo';
 import OnAir from './components/onair';
 import Event from './components/event';
@@ -19,8 +20,9 @@ import ComingSoon from './components/comingSoon';
 export default function index() {
   return (
     <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
+      <Header />
       <ScrollView>
-        <Header />
+        <Location />
         <Promo />
         <OnAir />
         <Text style={styles.line}></Text>
